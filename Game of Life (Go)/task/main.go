@@ -22,16 +22,15 @@ func main() {
 	nextUniverse := u
 
 	for {
-		time.Sleep(500 * time.Millisecond)
-		clearConsole()
-
-		nextUniverse = nextUniverse.NextGeneration()
-
 		fmt.Println(fmt.Sprintf("Generation #%d", generation+1))
 		fmt.Println(fmt.Sprintf("Alive:%d", nextUniverse.Alive()))
-
 		nextUniverse.Print()
+
+		nextUniverse = nextUniverse.NextGeneration()
 		generation++
+
+		time.Sleep(500 * time.Millisecond)
+		clearConsole()
 	}
 }
 
